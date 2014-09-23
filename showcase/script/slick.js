@@ -55,7 +55,7 @@
                 },
                 dots: false,
                 draggable: true,
-                easing: 'linear',
+                easing: 'easeInOutBounce',
                 fade: false,
                 focusOnSelect: false,
                 infinite: true,
