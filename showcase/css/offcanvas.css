@@ -171,16 +171,19 @@ footer p {
 #footer-contact{
   position: fixed;
   bottom: -16%;
-  left: 50%;
+  left: 0;
   width: 100%;
   height: 0;
-  -webkit-transition: all .25s ease-out;
-         -o-transition: all .25s ease-out;
-            transition: all .25s ease-out;
+  -webkit-transition: all .60s ease-out;
+         -o-transition: all .60s ease-out;
+            transition: all .60s ease-out;
 }
 #footer-contact h1{
   position: absolute;
-  left: -25%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
 }
 #footer-contact h1 strong{
   color:#107bc2;
@@ -506,6 +509,36 @@ display: block;
 max-width: 100%;
 max-height: 100%;
 }
+
+ul.buttons{
+  list-style-type: none;
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+ul.buttons li{
+  float: left;
+  display: inline-block;
+  margin-right: 37px;
+
+}
+
+ul.buttons li a{
+  padding: 5px 8px;
+  background-color: #107bc2;
+  color: #fff;
+  margin-right: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+
+}
+
+ul.buttons li a:hover,ul.buttons li a:focus, ul.buttons li a:active{
+  background: #fff;
+  color: #107bc2; 
+
+}
   
   .inner {
   float: left;
@@ -543,6 +576,19 @@ max-height: 100%;
     aside a#download,aside label{
 
       font-size: 13px;
+    }
+
+    #sidebar{
+
+      left:0;
+      width: 235px;
+      margin-left: -235px;
+    }
+
+    #sidebar.active{
+
+      left:0;
+      margin-left: 0;
     }
 
   }

@@ -30,6 +30,7 @@
 </head>
 
 <body>
+  <div class="site-wrapper">
 	 <div class="wrapper">
 	 	<div class="main-panel">
 	<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
@@ -161,8 +162,9 @@
 
     		</div>
 		</div>
+  </div>
 	<div id="footer-contact">
-		<h1><a href="mailto:ason.matthews@addison-group.net&amp;subject=Re:'Slick'%20Carousel%20Creator%20issue%20tracker"><strong>Contact:</strong> Ason.Matthews@addison-group.net</a><br />
+		<h1><strong>Contact:</strong><a href="mailto:ason.matthews@addison-group.net&amp;subject=Re:'Slick'%20Carousel%20Creator%20issue%20tracker"> Ason.Matthews@addison-group.net</a><br />
 		<span>Please don't contact me about IE issues....I just don't care.<br /><strong>amxx</strong></span></h1>
 	</div>
 
@@ -248,7 +250,6 @@
 				init:function(){
 					
 					if(typeof(Storage) !== "undefined") {
-						console.log(JSON.parse(localStorage.slickVariables))
 			    		if(localStorage.slickVariables){$democontainer.slick(JSON.parse(localStorage.slickVariables))}else{$democontainer.slick($availablevariables)};
 
 					} else {
