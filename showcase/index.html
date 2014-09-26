@@ -214,6 +214,9 @@
 				centerMode: false	
 			}
 
+      if(localStorage.slickVariables){$availablevariables = JSON.parse(localStorage.slickVariables)};
+
+
 
 			$('a#download').on('click',function(e){
 
@@ -225,7 +228,7 @@
 				eUrl=eUrl.replace(/\}/g, "");
 				eUrl=eUrl.replace(/,/g, ",%0D%0A");
 				$(this).attr('href',''+eUrl+'');
-				console.log(eUrl)
+
 
 			})
 
@@ -242,6 +245,21 @@
 				e.preventDefault();
 
 			});
+
+      $('a#reset').on('click',function(e){
+
+        if(typeof(Storage) !== "undefined") {
+            localStorage.slickVariables = "";
+            alert("'Slick' Variables Reset!");
+        } else {
+            alert("Sorry! No Web Storage support on ")
+        }
+
+        e.preventDefault();
+
+      });
+
+
 
 			
 
