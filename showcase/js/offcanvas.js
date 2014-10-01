@@ -30,10 +30,16 @@ $(document).ready(function () {
   		$(this).parent().find("input:text").removeAttr("id").hide();
   	}
 
-  		
-
   })
 
 
+  
+
+
+
+
+
+
+  
 
 });

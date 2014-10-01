@@ -32,7 +32,8 @@
 <body>
   <div class="site-wrapper">
 	 <div class="wrapper">
-	 	<div class="main-panel">
+    <svg id="diamond"><a href="#">CLOSE</a></svg>
+	 <div class="main-panel">
 	<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
      
       <div class="container">
@@ -86,7 +87,8 @@
 					<p class="download"><a href="mailto:&amp;subject=RE:Slick%20Carousel%20Variables&amp;body=Please%20find%20the%20Slick%20Carousel%20'_.defaults'%20variables%20below:%0D%0A%0D%0A" target="_top" id="download">Send plugin variables</a></p>
 					<ul class="buttons">
 						<li><a href="#" id="save">Save</a></li>
-						<li><a href="#" id="reset">Reset</a></li>
+						<li><a href="#" id="grab">Grab variables</a></li>
+            <li><a href="#" id="reset">Reset</a></li>
 					</ul>
 				</div>
 			</aside>
@@ -190,7 +192,7 @@
 	<script type="text/javascript" id="callplugin">
 	$(function() {
 
-
+    var svg = Snap("#diamond"), diamond = svg.path("M 959.5 522 L 779.5 342 L 959.5 162 L 1139.5 342 Z").attr({fill: "#fff"}), svgtextVariables;
 			
 			$optionsform = $("#variables");
 			$setdelay = "";
@@ -214,6 +216,12 @@
 				centerMode: false	
 			}
 
+      svgtextVariables = JSON.stringify($availablevariables);
+      svgtextVariables=svgtextVariables.replace(/\"/g, "");
+      svgtextVariables=svgtextVariables.replace(/\{/g, "");
+      svgtextVariables=svgtextVariables.replace(/\}/g, "");
+      svgtextVariables=svgtextVariables.replace(",", "\n\r");
+
       if(localStorage.slickVariables){$availablevariables = JSON.parse(localStorage.slickVariables)};
 
 
@@ -233,13 +241,15 @@
 			})
 
 
+      
+
 			$('a#save').on('click',function(e){
 
 				if(typeof(Storage) !== "undefined") {
 			    	localStorage.slickVariables = JSON.stringify($availablevariables);
 			    	alert("'Slick' Variables Saved!");
 				} else {
-				    alert("Sorry! No Web Storage support on ")
+				    alert("Sorry! No Web Storage support")
 				}
 
 				e.preventDefault();
@@ -252,12 +262,42 @@
             localStorage.slickVariables = "";
             alert("'Slick' Variables Reset!");
         } else {
-            alert("Sorry! No Web Storage support on ")
+            alert("Sorry! No Web Storage support")
         }
 
         e.preventDefault();
 
       });
+
+      $('#grab').on('click',function(){
+        $('#sidebar,#main,#diamond').toggleClass('active');
+        $('#diamond').css({"visibility":"visible"}).animate({
+          opacity: 1,
+          left: "+=50"
+        }, 500, function() {
+          
+            diamond.animate({path: "M 60 60, 1859 60, 1859 624, 60 624 Z"}, 1000);
+            
+
+            svg.text(0, 0, "Slick plugin variables").attr({transform:"matrix(1 0 0 1 150.0001 150.8398)",style:"font: 300 70px Source Sans Pro, source-sans-pro, sans-serif"});
+            svg.text(0, 0, "Please copy and send the plugin variables below:").attr({transform:"matrix(1 0 0 1 150.0001 250.8398)",style:"font: 300 40px Source Sans Pro, source-sans-pro, sans-serif"});
+            svg.text(0, 0, "var sccVariables={"+svgtextVariables+"}").attr({transform:"matrix(1 0 0 1 150.0001 350.8398)",style:"font: 300 20px Source Sans Pro, source-sans-pro, sans-serif"});
+            svg.text(0, 0, "$(element).slick(sccVariables);").attr({transform:"matrix(1 0 0 1 150.0001 400.8398)",style:"font: 300 20px Source Sans Pro, source-sans-pro, sans-serif"});
+            $('#diamond text').delay(1000).fadeIn(500,function() {});
+            
+      });
+      })  
+
+      $('#close').on('click',function(){
+        $('#diamond').animate({
+          opacity: 0
+        }, 500, function() {
+            $(this).css({"visibility":"visible"});
+            diamond.animate({path: "M 959.5 522 L 779.5 342 L 959.5 162 L 1139.5 342 Z"}, 1000);
+             $('#diamond text').remove();
+        });
+
+      })
 
 
 
@@ -398,6 +438,7 @@
 <!-- 		// <script type="text/javascript" src="script/slick.js"></script> -->
 		
 	    <script src="js/bootstrap.min.js"></script>
+      <script src="js/snap.svg-min.js"></script>
 
 	    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	    <script src="js/ie10-viewport-bug-workaround.js"></script>
