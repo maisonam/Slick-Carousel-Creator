@@ -1,0 +1,117 @@
+/*------------ Template -------------*/
+
+body{
+    color: #424347;
+    font-family: helvetica,verdana,sans-serif;
+    font-size: 100%;
+    line-height: 1.25em;
+    margin: 0;
+    padding: 0;	
+}
+
+section{
+	margin: 0 auto;
+	min-height: 100%;
+	position: relative;
+	text-align: left;
+	min-width:600px;
+	max-width:900px;
+}
+
+article, header{font-size:75%;}
+
+aside, .codedescription{
+	float:right;
+	padding:0 2%;
+	width:28%;	
+}
+
+.codedescription{float:left;width:63%;}
+aside form,aside fieldset{
+	border:0;
+	margin:0 0 1em 0;
+	padding:0;
+	float:left;
+	width:100%;
+}
+article,header,.heading{
+	clear:both;
+	float:left;
+	width:100%;	
+}
+header, article{
+	background-image: linear-gradient(to top, rgba(233, 232, 224, 0.25), rgba(255, 255, 255, 0.25));
+	-webkit-box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 1px 4px 0 rgba(0, 0, 0, 0.25);
+	margin:10px 0 30px;
+}
+
+article{padding:0 2% 2%;margin:0 0 30px;width:96%;	}
+
+.clear {
+    clear: both;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+}
+
+/*------------ Typography -------------*/
+
+h1{
+	float:left;
+	font-size:185%;
+	margin:1em 0;
+	padding:0 0 0 2%;
+}
+
+header p {
+	font-size:116.7%;
+	padding-right:4em;
+}
+
+header label{ padding:5px 8px; background-color:#107bc2;color:#fff;margin-right:10px;}
+
+h2{
+	font-size:116.7%;
+	text-transform:uppercase;
+	padding:1.5em 0 0.15em;
+	margin:0 0 1em;
+	border-bottom:2px solid #107bc2;
+}
+
+.codedescription h2{
+	 border:none;
+	 color:#107bc2;
+	 text-transform:none;
+	 font-size:185%;
+	 margin:0;
+	 padding:1em 0 0.75em 0;
+}
+
+
+
+#changevariables #source-switch input[type="checkbox"] {
+-webkit-appearance: none;
+margin: -5px -6px -7px;
+width: 82px;
+height: 24px;
+border: none;
+background: url(../images/toggle.png) no-repeat 0 -24px;
+cursor: pointer;
+-webkit-tap-highlight-color: transparent;
+}
+
+#changevariables #source-switch input[type="checkbox"]:checked {
+background-position: 0 0;
+}
+
+
+
+/*--------------- Layout ------------------*/
+
+.floatleft{float:left;}
+.floatright{float:right;}
+
+
